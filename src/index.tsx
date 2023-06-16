@@ -4,6 +4,17 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
+// to start service worker mock
+// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+;(async () =>{
+    const { worker } = await import('./mocks/browser')
+    await worker.start({
+      serviceWorker: {
+        url: '/public/mockServiceWorker.js'
+      }
+    })
+})
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
